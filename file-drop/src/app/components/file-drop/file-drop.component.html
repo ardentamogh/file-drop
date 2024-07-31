@@ -6,23 +6,18 @@
     (drop)="onDrop($event)">
             {{ 'DRAG_FILES' | translate}}
 
-            <div *ngIf="files.length === 0" class="col-12">
-                {{ 'NO_FILES' | translate}}
-
-            </div>
-            <div *ngIf="files.length > 0" class="col-12">
-                <div class="file" *ngFor="let file of files">
-                    {{ file?.name}}
-                </div>
-            </div>
+        
     </div>
 
-    <div class="row">
+    <div class="files-area row">
         <div class="col-md-6">
             <h3>  {{ 'FILES_DRAGGED' | translate}}
             </h3>
+            <h4 *ngIf="files.length === 0" class="col-12">
+                {{ 'NO_FILES' | translate}}
+            </h4>
             <ul *ngIf="files.length > 0">
-                <li *ngFor="let file of files">
+                <li *ngFor="let file of files" class="file">
                   {{ file.name }}
                 </li>
               </ul>
@@ -31,16 +26,19 @@
             <h3>  {{ 'FILES_UPLOADED' | translate}}
             </h3>
             <ul *ngIf="filesUploaded.length > 0">
-                <li *ngFor="let file of filesUploaded">
-                  {{ file.filename }}
+                <li class="file" *ngFor="let file of filesUploaded">
+                  {{ file.originalname }}
+                  <br>
+                  <button class="btn btn-primary" (click)="downloadPdf(file._id)" >   {{ 'DOWNLOAD_PDF' | translate}}
+                </button>
                 </li>
               </ul>
         </div>
     </div>
-    <div class="row">
-        <button #button class="btn btn-primary col-5 mx-1" (mousedown)="onMouseDown($event)"  (click)="generateFilesList()" >   {{ 'SUBMIT_FILES' | translate}}
+    <div>
+        <button #button class="btn btn-primary mx-1" (mousedown)="onMouseDown($event)"  (click)="generateFilesList()" >   {{ 'SUBMIT_FILES' | translate}}
         </button>
-        <button class="btn btn-primary col-5 mx-1"  (click)="getStatus()" >   {{ 'LOGIN_STATUS' | translate}}
+        <button class="btn btn-primary mx-1"  (click)="getStatus()" >   {{ 'LOGIN_STATUS' | translate}}
         </button>
     </div>
 

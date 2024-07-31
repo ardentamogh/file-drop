@@ -9,3 +9,13 @@
     align-items: center;
     margin: 1rem;
 }
+.files-area{
+    .file{
+        background: lightblue;
+        display: flex;
+        justify-content: space-around;
+        border-radius: 8px;
+        margin-top: 8px;
+        padding: 12px;
+    }
+}
