@@ -4,6 +4,7 @@
     "FILES_DRAGGED":"Files Dragged",
     "FILES_UPLOADED":"Files Uploaded",
     "DRAG_FILES":"Drag your files here",
-    "LOGIN_STATUS":"Click on me to status about login details",
-    "DOWNLOAD_PDF":"Download PDF"
+    "LOGIN_STATUS":"Go to file upload while checking login status",
+    "DOWNLOAD_PDF":"Download PDF",
+    "HOMEPAGE":"Home page"
 }

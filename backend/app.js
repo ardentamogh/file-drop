@@ -38,6 +38,12 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
+app.get('/status_check', (req, res) => {
+  const randomValue = Math.sin(Math.random() * Math.PI * 2);
+  const result = randomValue >= 0;
+  res.json({ result });
+});
+
 app.post('/upload', upload.single('pdf'), async (req, res) => {
   const newPdf = new Pdf({
     filename: req.file.filename,
@@ -73,12 +79,6 @@ app.get('/pdf/:id', async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
-
-app.get('/status_check', (req, res) => {
-    const randomValue = Math.sin(Math.random() * Math.PI * 2);
-    const result = randomValue >= 0;
-    res.json({ result });
-  });
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

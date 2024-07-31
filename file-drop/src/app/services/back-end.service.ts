@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { environment } from 'src/environments/environment';
 export class BackEndService {
   private baseUrl = environment.API_END;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private toastr: ToastrService) { }
 
   uploadPdf(pdf: File): Observable<any> {
     const formData: FormData = new FormData();
@@ -27,5 +28,14 @@ export class BackEndService {
   }
   getStatus(): Observable<any>{
     return this.http.get(`${this.baseUrl}/status_check`);
+  }
+
+  showToast(message:string,title:string,type?:string){
+    if(type == 'error'){
+      this.toastr.error(message,title);
+    }
+    else{
+      this.toastr.success(message,title);
+    }
   }
 }

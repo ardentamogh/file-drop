@@ -17,7 +17,7 @@ export class AppComponent {
 
   constructor(private translate: TranslateService,private router:Router) {
     this.translate.setDefaultLang(this.selectedLanguage);
-    this.router.navigate(['/files']);
+    this.router.navigate(['/home']);
   }
 
   changeLanguage(lang: string) {

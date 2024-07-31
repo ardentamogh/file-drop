@@ -17,8 +17,8 @@
                 {{ 'NO_FILES' | translate}}
             </h4>
             <ul *ngIf="files.length > 0">
-                <li *ngFor="let file of files" class="file">
-                  {{ file.name }}
+                <li *ngFor="let file of files;let index = index " class="file">
+                  {{  index+ 1}} {{ file.name }}
                 </li>
               </ul>
         </div>
@@ -26,8 +26,8 @@
             <h3>  {{ 'FILES_UPLOADED' | translate}}
             </h3>
             <ul *ngIf="filesUploaded.length > 0">
-                <li class="file" *ngFor="let file of filesUploaded">
-                  {{ file.originalname }}
+                <li class="file" *ngFor="let file of filesUploaded;let index = index">
+                  {{ index + 1}} {{ file.originalname }}
                   <br>
                   <button class="btn btn-primary" (click)="downloadPdf(file._id)" >   {{ 'DOWNLOAD_PDF' | translate}}
                 </button>
@@ -37,8 +37,6 @@
     </div>
     <div>
         <button #button class="btn btn-primary mx-1" (mousedown)="onMouseDown($event)"  (click)="generateFilesList()" >   {{ 'SUBMIT_FILES' | translate}}
-        </button>
-        <button class="btn btn-primary mx-1"  (click)="getStatus()" >   {{ 'LOGIN_STATUS' | translate}}
         </button>
     </div>
 

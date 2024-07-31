@@ -13,8 +13,10 @@ selectedFile: File | any = null;
 dragging: boolean = false;
 filesUploaded:any = [];
 
-constructor(private httpClient:HttpClient,private backendService:BackEndService,private el:ElementRef,
-  private router:Router
+constructor(private httpClient:HttpClient,
+  private backendService:BackEndService,
+  private el:ElementRef,
+  private router:Router,
 ){
 
 }
@@ -65,10 +67,14 @@ downloadPdf(id: string) {
 onDrop(event: DragEvent) {
   event.preventDefault();
   event.stopPropagation();
+ 
+  if(event.dataTransfer?.files && Array.from(event.dataTransfer.files)[0].type != 'application/pdf'){
+    this.backendService.showToast('Kindly upload pdf only', 'Error','error');
+  }
   this.dragging = false;
   if(event.dataTransfer?.files){
     const newFiles = Array.from(event.dataTransfer.files);
-    this.files = [...this.files, ...newFiles]; 
+    this.files = [...newFiles]; 
   }
 }
 
@@ -115,14 +121,6 @@ onClick($event: PointerEvent) {
   ) {
     this.generateFilesList();
   }
-}
-
-getStatus(){
-  this.backendService.getStatus().subscribe((res:any) => {
-    if(res.result){
-      this.router.navigate(['/unauthorized']);
-    }
-  });
 }
 
 }

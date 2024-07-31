@@ -4,6 +4,7 @@
 "FILES_DRAGGED": "Dateien gezogen",
 "FILES_UPLOADED": "Dateien hochgeladen",
 "DRAG_FILES": "Ziehen Sie Ihre Dateien hierher",
-"LOGIN_STATUS":"Klicken Sie auf mich, um den Status zu den Anmeldedaten anzuzeigen",
-"DOWNLOAD_PDF":"PDF Herunterladen"
+"LOGIN_STATUS":"Gehen Sie zum Datei-Upload, während Sie den Anmeldestatus überprüfen",
+"DOWNLOAD_PDF":"PDF Herunterladen",
+"HOMEPAGE":"Startseite"
 }

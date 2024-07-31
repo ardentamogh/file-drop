@@ -12,16 +12,20 @@ import { HttpClient,HttpClientModule } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { CustomLoader } from './translate-loader';
 import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
+import { ToastrModule } from 'ngx-toastr';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FileDropComponent,
     UnauthorizedComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     HammerModule,
+    ToastrModule.forRoot(),
     BrowserAnimationsModule,
     HttpClientModule,
     TranslateModule.forRoot({
