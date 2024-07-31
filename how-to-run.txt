@@ -1,0 +1,10 @@
+npm i in backend folder
+then nodemon app.js
+
+make sure mongod is running
+
+
+then in file-drop folder
+npm i 
+then npm run start
+
