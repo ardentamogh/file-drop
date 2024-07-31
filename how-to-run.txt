@@ -1,10 +1,15 @@
+//Express Backend 
 npm i in backend folder
-then nodemon app.js
+create a 'uploads' folder inside backend folder 
+then run
+nodemon app.js
 
 make sure mongod is running
 
+//Angular front end 
+then in file-drop folder 
 
-then in file-drop folder
+run these two commands
 npm i 
-then npm run start
+npm run start
 
